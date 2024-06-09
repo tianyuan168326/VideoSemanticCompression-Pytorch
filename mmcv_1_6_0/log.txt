@@ -1,0 +1,13 @@
+Obtaining file:///data/code_space/vsc_scaffold/mmcv_1_6_0
+Requirement already satisfied: addict in /home/ubuntu/anaconda3/envs/video_semantic_coding/lib/python3.9/site-packages (from mmcv-full==1.6.0) (2.4.0)
+Requirement already satisfied: numpy in /home/ubuntu/anaconda3/envs/video_semantic_coding/lib/python3.9/site-packages (from mmcv-full==1.6.0) (1.22.4)
+Requirement already satisfied: packaging in /home/ubuntu/anaconda3/envs/video_semantic_coding/lib/python3.9/site-packages (from mmcv-full==1.6.0) (21.3)
+Requirement already satisfied: Pillow in /home/ubuntu/anaconda3/envs/video_semantic_coding/lib/python3.9/site-packages (from mmcv-full==1.6.0) (8.4.0)
+Requirement already satisfied: pyyaml in /home/ubuntu/anaconda3/envs/video_semantic_coding/lib/python3.9/site-packages (from mmcv-full==1.6.0) (6.0)
+Requirement already satisfied: yapf in /home/ubuntu/anaconda3/envs/video_semantic_coding/lib/python3.9/site-packages (from mmcv-full==1.6.0) (0.32.0)
+Requirement already satisfied: pyparsing!=3.0.5,>=2.0.2 in /home/ubuntu/anaconda3/envs/video_semantic_coding/lib/python3.9/site-packages (from packaging->mmcv-full==1.6.0) (3.0.6)
+Installing collected packages: mmcv-full
+  Attempting uninstall: mmcv-full
+    Found existing installation: mmcv-full 1.6.0
+    Can't uninstall 'mmcv-full'. No files were found to uninstall.
+  Running setup.py develop for mmcv-full
