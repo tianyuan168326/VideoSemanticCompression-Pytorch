@@ -48,7 +48,7 @@ Extensive results demonstrate the proposed SMC and SMC++ models show remarkable 
 
 In this section, we adopt the  [XMEM](https://arxiv.org/abs/2207.07115) approach as the VOS task evaluator.
 
-1. Download the official XMEM models, "XMem.pth"和"XMem-s012.pth", from the link, and save them to the folder "XMem/saves".
+1. Download the official XMEM models, `XMem.pth' and `XMem-s012.pth', from the link, and save them to the folder "XMem/saves".
 
     ```
     Link: https://pan.baidu.com/s/1pPUunMOmRn5LoOaW6z641g?pwd=isol 
@@ -62,8 +62,8 @@ In this section, we adopt the  [XMEM](https://arxiv.org/abs/2207.07115) approach
     Password: r17g  
     ```
 
-Note: For this datasete, we download the original 1080p frames, and down-sample the frames into 480p.
-Compared to the officially released 480p frames, our re-organized version is with less artifacts, thus more suitable for evaluating different compression methods.
+    Note: For this datasete, we download the original 1080p frames, and down-sample the frames into 480p.
+    Compared to the officially released 480p frames, our re-organized version is with less artifacts, thus more suitable for evaluating different compression methods.
 
 3. De-compress the DAVIS2017 dataset
     ```
@@ -89,7 +89,7 @@ Compared to the officially released 480p frames, our re-organized version is wit
 ##  Video Action Recognition Task
 
 We re-use the codes of mmaction2 to inherit their rich pre-trained action models.
-Configuring mmaction2 is a little bit trivial.
+Configuring mmaction2 is a bit tedious, please be patient.
 <!-- 1. Make sure your G++/GCC version >6.0.0. cuda_toolkit version is 11.6.1. -->
 
 1. Install mmcv and mmaction2
@@ -101,72 +101,72 @@ cd mmaction2_v0_20_0
 python setup.py develop
 ```
 
-2. Download all pre-trained action models and put them into the folder "/data/code_space/smc_plus_opensource/pretrain_models/action".
-```
-Link: https://pan.baidu.com/s/1ixi5AYd0YQyQQQlnHFZtkw?pwd=ri6q 
-Password: ri6q 
-```
+2. Download all pre-trained action models and put them into the folder `pretrain_models/action'.
+    ```
+    Link: https://pan.baidu.com/s/1ixi5AYd0YQyQQQlnHFZtkw?pwd=ri6q 
+    Password: ri6q 
+    ```
 
-<div align="center">
-<table>
-<thead>
-<tr>
-<th align="center">Dataset-Action Model Pair</th>
-<th align="center">Model file name</th>
-</tr>
-</thead>
+    <div align="center">
+    <table>
+    <thead>
+    <tr>
+    <th align="center">Dataset-Action Model Pair</th>
+    <th align="center">Model file name</th>
+    </tr>
+    </thead>
 
-<tbody>
+    <tbody>
 
-<tr>
-<td align="center">timesformer-hmdb51</td>
-<td align="center" >timesformer_hmdb51_best_top1_acc_epoch_5.pth</td>
-</tr>
+    <tr>
+    <td align="center">timesformer-hmdb51</td>
+    <td align="center" >timesformer_hmdb51_best_top1_acc_epoch_5.pth</td>
+    </tr>
 
-<tr>
-<td align="center">timesformer_ucf101</td>
-<td align="center" >timesformer_ucf101_best_top1_acc_epoch_8.pth</td>
-</tr>
+    <tr>
+    <td align="center">timesformer_ucf101</td>
+    <td align="center" >timesformer_ucf101_best_top1_acc_epoch_8.pth</td>
+    </tr>
 
-<tr>
-<td align="center">tsm_hmdb51</td>
-<td align="center" >tsm_hmdb51_best_top1_acc_epoch_10.pth</td>
-</tr>
+    <tr>
+    <td align="center">tsm_hmdb51</td>
+    <td align="center" >tsm_hmdb51_best_top1_acc_epoch_10.pth</td>
+    </tr>
 
-<tr>
-<td align="center">slowfast_hmdb51</td>
-<td align="center" >slowfast_hmdb51_epoch_33.pth</td>
-</tr>
+    <tr>
+    <td align="center">slowfast_hmdb51</td>
+    <td align="center" >slowfast_hmdb51_epoch_33.pth</td>
+    </tr>
 
-<tr>
-<td align="center">slowfast_ucf101</td>
-<td align="center" >slowfast_ucf101_epoch_40.pth</td>
-</tr>
+    <tr>
+    <td align="center">slowfast_ucf101</td>
+    <td align="center" >slowfast_ucf101_epoch_40.pth</td>
+    </tr>
 
-<tr>
-<td align="center">slowfast_k400</td>
-<td align="center" >slowfast_k400_slowfast_r50_4x16x1_256e_kinetics400_rgb_20210722-04e43ed4.pth</td>
-</tr>
+    <tr>
+    <td align="center">slowfast_k400</td>
+    <td align="center" >slowfast_k400_slowfast_r50_4x16x1_256e_kinetics400_rgb_20210722-04e43ed4.pth</td>
+    </tr>
 
-<tr>
-<td align="center">tsm_ucf101</td>
-<td align="center" >tsm_ucf101_tsm_k400_pretrained_r50_1x1x8_25e_ucf101_rgb_20210630-1fae312b.pth</td>
-</tr>
+    <tr>
+    <td align="center">tsm_ucf101</td>
+    <td align="center" >tsm_ucf101_tsm_k400_pretrained_r50_1x1x8_25e_ucf101_rgb_20210630-1fae312b.pth</td>
+    </tr>
 
-<tr>
-<td align="center">tsm_k400</td>
-<td align="center" >tsm_k400_tsm_r50_1x1x8_50e_kinetics400_rgb_20200607-af7fb746.pth</td>
-</tr>
+    <tr>
+    <td align="center">tsm_k400</td>
+    <td align="center" >tsm_k400_tsm_r50_1x1x8_50e_kinetics400_rgb_20200607-af7fb746.pth</td>
+    </tr>
 
-<tr>
-<td align="center">tsm_diving48</td>
-<td align="center" >tsm_diving48_tsm_r50_video_1x1x8_50e_diving48_rgb_20210426-aba5aa3d.pth</td>
-</tr>
+    <tr>
+    <td align="center">tsm_diving48</td>
+    <td align="center" >tsm_diving48_tsm_r50_video_1x1x8_50e_diving48_rgb_20210426-aba5aa3d.pth</td>
+    </tr>
 
-</tbody>
+    </tbody>
 
-</table>
-</div>
+    </table>
+    </div>
 
 3. Video action dataset preparation
 
@@ -197,27 +197,28 @@ Password: ri6q
 
 3. Re-produce action results
 
-* Slowfast-UCF101:
- 
+    * Slowfast-UCF101:
+    
 
-Set the `data_root/data_root_val/data_root_compress/data_root_val_compress` field in the configuration file `mmaction2_v0_20_0/configs/lbvu/slowfast_ucf101.py' to the directory of your extracted UCF101 dataset;
-```
-cd mmaction2_v0_20_0
-python configs/SMC_Plus/test_slowfast_ucf101.py
-```
-If the GPU memory is insufficient, please reduce the value of the `data.test_dataloader.videos_per_gpu' field.
+    Set the `data_root/data_root_val/data_root_compress/data_root_val_compress` field in the configuration file `mmaction2_v0_20_0/configs/lbvu/slowfast_ucf101.py' to the directory of your extracted UCF101 dataset;
+    ```
+    cd mmaction2_v0_20_0
+    python configs/SMC_Plus/test_slowfast_ucf101.py
+    ```
+    If the GPU memory is insufficient, please reduce the value of the `data.test_dataloader.videos_per_gpu' field.
 
 
-*TSM- HMDB51:
-Set the `data_root/data_root_val/data_root_compress/data_root_val_compress` field in the configuration file `mmaction2_v0_20_0/configs/lbvu/tsm_hmdb.py' to the directory of your extracted HMDB51 dataset;
-```
-cd mmaction2_v0_20_0
-python configs/SMC_Plus/test_tsm_hmdb.py
-```
-If the GPU memory is insufficient, please reduce the value of the `data.test_dataloader.videos_per_gpu' field.
+    * TSM- HMDB51:
+    Set the `data_root/data_root_val/data_root_compress/data_root_val_compress` field in the configuration file `mmaction2_v0_20_0/configs/lbvu/tsm_hmdb.py' to the directory of your extracted HMDB51 dataset;
+    ```
+    cd mmaction2_v0_20_0
+    python configs/SMC_Plus/test_tsm_hmdb.py
+    ```
+    If the GPU memory is insufficient, please reduce the value of the `data.test_dataloader.videos_per_gpu' field.
 
-*Other Action models and datasets:
-Please refer to `mmaction2_v0_20_0/configs/SMC_Plus/test_other_action_models.py'.
+    * Other Action models and datasets:
+
+    Please refer to `mmaction2_v0_20_0/configs/SMC_Plus/test_other_action_models.py'.
 
 
 
