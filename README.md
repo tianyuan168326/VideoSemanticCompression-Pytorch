@@ -101,7 +101,7 @@ cd mmaction2_v0_20_0
 python setup.py develop
 ```
 
-2. Download all pre-trained action models and put them into the folder `/data/code_space/smc_plus_opensource/pretrain_models/action'.
+2. Download all pre-trained action models and put them into the folder `pretrain_models/action'.
     ```
     Link: https://pan.baidu.com/s/1ixi5AYd0YQyQQQlnHFZtkw?pwd=ri6q 
     Password: ri6q 
