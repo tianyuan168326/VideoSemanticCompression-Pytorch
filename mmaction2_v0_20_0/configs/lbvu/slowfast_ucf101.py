@@ -1,0 +1,108 @@
+_base_ = [
+    '../_base_/models/slowfast_r50.py', '../_base_/default_runtime.py'
+]
+
+# model settings
+model = dict(cls_head=dict(num_classes=101))
+
+# dataset settings
+dataset_type = 'RawframeDataset'
+data_root = '/data/code_space/smc_plus_opensource/VideoDatasetList/ucf101_jpg'
+data_root_val = '/data/code_space/smc_plus_opensource/VideoDatasetList/ucf101_jpg'
+data_root_compress = '/data/code_space/smc_plus_opensource/VideoDatasetList/ucf101_jpg'
+data_root_val_compress= '/data/code_space/smc_plus_opensource/VideoDatasetList/ucf101_jpg'
+split = 1  # official train/test splits. valid numbers: 1, 2, 3
+ann_file_train = f'tools/data/ucf101_train_val_split/train_tsn_01.txt'
+ann_file_val = f'tools/data/ucf101_train_val_split/test_tsn_01.txt'
+ann_file_test = f'tools/data/ucf101_train_val_split/test_tsn_01.txt'
+
+img_norm_cfg = dict(
+    mean=[123.675, 116.28, 103.53], std=[58.395, 57.12, 57.375], to_bgr=False)
+
+train_pipeline = [
+    dict(type='SampleFrames', clip_len=32, frame_interval=2, num_clips=1),
+    dict(type='RawFrameDecode'),
+    dict(type='Resize', scale=(-1, 256)),
+    dict(type='RandomResizedCrop'),
+    dict(type='Resize', scale=(224, 224), keep_ratio=False),
+    dict(type='Flip', flip_ratio=0.5),
+    dict(type='Normalize', **img_norm_cfg),
+    dict(type='FormatShape', input_format='NCTHW'),
+    dict(type='Collect', keys=['imgs',"imgs_compress","img_norm_cfg", 'label'], meta_keys=[]),
+    dict(type='ToTensor', keys=['imgs',"imgs_compress"])
+]
+val_pipeline = [
+    dict(
+        type='SampleFrames',
+        clip_len=32,
+        frame_interval=2,
+        num_clips=1,
+        test_mode=True),
+    dict(type='RawFrameDecode'),
+    dict(type='Resize', scale=(-1, 256)),
+    dict(type='CenterCrop', crop_size=224),
+    dict(type='Normalize', **img_norm_cfg),
+    dict(type='FormatShape', input_format='NCTHW'),
+    dict(type='Collect', keys=['imgs',"imgs_compress","img_norm_cfg", 'label'], meta_keys=[]),
+    dict(type='ToTensor', keys=['imgs',"imgs_compress"])
+]
+test_pipeline = [
+    dict(
+        type='SampleFrames',
+        clip_len=32,
+        frame_interval=2,
+        num_clips=1,
+        test_mode=True),
+    dict(type='RawFrameDecode'),
+    dict(type='Resize', scale=(-1, 256)),
+    dict(type='CenterCrop', crop_size=224),
+    dict(type='Normalize', **img_norm_cfg),
+    dict(type='FormatShape', input_format='NCTHW'),
+    dict(type='Collect', keys=['imgs',"imgs_compress", "img_norm_cfg",'label'], meta_keys=[]),
+    dict(type='ToTensor', keys=['imgs',"imgs_compress"])
+]
+data_name_tmpl = '{:06}.jpg'
+data = dict(
+    videos_per_gpu=8,
+    workers_per_gpu=2,
+    test_dataloader=dict(videos_per_gpu=8),
+    train=dict(
+        filename_tmpl=data_name_tmpl,
+
+        type=dataset_type,
+        ann_file=ann_file_train,
+        data_prefix=data_root,
+        data_prefix_compress=data_root_compress,
+        pipeline=train_pipeline),
+    val=dict(
+        filename_tmpl=data_name_tmpl,
+
+        type=dataset_type,
+        ann_file=ann_file_val,
+        data_prefix=data_root_val,
+        data_prefix_compress=data_root_compress,
+        pipeline=val_pipeline),
+    test=dict(
+        filename_tmpl=data_name_tmpl,
+
+        type=dataset_type,
+        ann_file=ann_file_test,
+        data_prefix=data_root_val,
+        data_prefix_compress=data_root_compress,
+        pipeline=test_pipeline))
+evaluation = dict(
+    interval=1, metrics=['top_k_accuracy', 'mean_class_accuracy'])
+
+# optimizer
+optimizer = dict(
+    type='SGD', lr=0.001, momentum=0.9,
+    weight_decay=0.0001)  # this lr is used for 8 gpus
+optimizer_config = dict(grad_clip=dict(max_norm=40, norm_type=2))
+# learning policy
+lr_config = dict(policy='step', step=[15, 30])
+total_epochs = 40
+
+# runtime settings
+# work_dir = './work_dirs/slowfast_k400_pretrained_r50_4x16x1_40e_ucf101_rgb'
+# load_from = 'https://download.openmmlab.com/mmaction/recognition/slowfast/slowfast_r50_4x16x1_256e_kinetics400_rgb/slowfast_r50_4x16x1_256e_kinetics400_rgb_20210722-04e43ed4.pth'  # noqa: E501
+# find_unused_parameters = True
