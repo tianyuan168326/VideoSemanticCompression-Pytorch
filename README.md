@@ -5,7 +5,7 @@ PyTorch Implementation of our paper:
 > **SMC++: Masked Learning of Unsupervised Video Semantic Compression**
 >
 > Yuan Tian, Guo Lu, and Guangtao Zhai
-> [[ArXiv](https://arxiv.org/)]
+> [[ArXiv](https://arxiv.org/abs/2406.04765)]
 
 This paper is an extended version of our work originally presented at ICCV 2023 "Non-Semantics Suppressed Mask Learning for Unsupervised Video SemanticCompression".
 
@@ -237,6 +237,13 @@ This repository is built upon the following projects.
 Please **[★star]** this repo and **[cite]** the following papers if you feel our project and codes useful to your research:
 
 ```
+@article{tian2024smcplus,
+  title={SMC++: Masked Learning of Unsupervised Video Semantic Compression},
+  author={Tian, Yuan and Lu, Guo and Zhai, Guangtao},
+  journal={arXiv},
+  year={2024}
+}
+
 @inproceedings{tian2023non,
   title={Non-Semantics Suppressed Mask Learning for Unsupervised Video Semantic Compression},
   author={Tian, Yuan and Lu, Guo and Zhai, Guangtao and Gao, Zhiyong},
@@ -245,12 +252,6 @@ Please **[★star]** this repo and **[cite]** the following papers if you feel o
   year={2023}
 }
 
-@article{tian2024smcplus,
-  title={SMC++: Masked Learning of Unsupervised Video Semantic Compression},
-  author={Tian, Yuan and Lu, Guo and Zhai, Guangtao},
-  journal={arXiv},
-  year={2024}
-}
 ```
 
 
