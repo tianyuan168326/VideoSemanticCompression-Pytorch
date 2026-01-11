@@ -245,6 +245,26 @@ Please **[★star]** this repo and **[cite]** the following papers if you feel o
   publisher={IEEE}
 }
 
+@article{tian2024coding,
+  title={A coding framework and benchmark towards low-bitrate video understanding},
+  author={Tian, Yuan and Lu, Guo and Yan, Yichao and Zhai, Guangtao and Chen, Li and Gao, Zhiyong},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume={46},
+  number={8},
+  pages={5852--5872},
+  year={2024},
+  publisher={IEEE}
+}
+
+@inproceedings{tian2024free,
+  title={Free-VSC: Free semantics from visual foundation models for unsupervised video semantic compression},
+  author={Tian, Yuan and Lu, Guo and Zhai, Guangtao},
+  booktitle={European Conference on Computer Vision},
+  pages={163--183},
+  year={2024},
+  organization={Springer}
+}
+
 @inproceedings{tian2023non,
   title={Non-Semantics Suppressed Mask Learning for Unsupervised Video Semantic Compression},
   author={Tian, Yuan and Lu, Guo and Zhai, Guangtao and Gao, Zhiyong},
