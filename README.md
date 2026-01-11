@@ -237,11 +237,12 @@ This repository is built upon the following projects.
 Please **[★star]** this repo and **[cite]** the following papers if you feel our project and codes useful to your research:
 
 ```
-@article{tian2024smcplus,
-  title={SMC++: Masked Learning of Unsupervised Video Semantic Compression},
-  author={Tian, Yuan and Lu, Guo and Zhai, Guangtao},
-  journal={arXiv},
-  year={2024}
+@article{tian2025smc++,
+  title={Smc++: Masked learning of unsupervised video semantic compression},
+  author={Tian, Yuan and Ling, Xiaoyue and Geng, Cong and Hu, Qiang and Lu, Guo and Zha, Guangtao},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025},
+  publisher={IEEE}
 }
 
 @inproceedings{tian2023non,
